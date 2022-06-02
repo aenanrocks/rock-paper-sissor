@@ -1,8 +1,9 @@
 let computerValue = computerPlay();
-let playerValue = prompt("Rock, Paper or Sissor ?");
+let playerValuePrompt = prompt("Rock, Paper or Sissor ?");
 let computerWins = 0;
 let playerWins = 0;
 let roundWinner;
+let playerValue = playerValuePrompt.toUpperCase();
 
 for (var x = 0; x <= 5; x++) {
   roundWinner = playRound(computerValue, playerValue);
@@ -13,8 +14,9 @@ for (var x = 0; x <= 5; x++) {
   } else if (roundWinner == "Computer Wins the Round") {
     computerWins++;
   }
-  playerValue = prompt("Rock, Paper or Sissor ?");
-  computerValue = computerPlay(); 
+  playerValuePrompt = prompt("Rock, Paper or Sissor ?");
+  playerValue = playerValuePrompt.toUpperCase();
+  computerValue = computerPlay();
 }
 
 if (playerWins > computerWins) {
@@ -25,22 +27,22 @@ if (playerWins > computerWins) {
 
 function computerPlay() {
   if (Math.round(Math.random() * 2) === 0) {
-    return "Rock";
+    return "ROCK";
   } else if (Math.round(Math.random() * 2) === 1) {
-    return "Paper";
+    return "PAPER";
   } else {
-    return "Sissor";
+    return "SISSOR";
   }
 }
 
 function playRound(computer, player) {
   if (computer === player) {
     return "Tie";
-  } else if (computer == "Rock" && player == "Paper") {
+  } else if (computer == "ROCK" && player == "PAPER") {
     return "Player Wins the Round";
-  } else if (computer == "Paper" && player == "Sissor") {
+  } else if (computer == "PAPER" && player == "SISSOR") {
     return "Player Wins the Round";
-  } else if (computer == "Sissor" && player == "Rock") {
+  } else if (computer == "SISSOR" && player == "ROCK") {
     return "Player Wins the Round";
   } else {
     return "Computer Wins the Round";
